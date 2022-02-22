@@ -1,7 +1,7 @@
 <?php
 namespace Kafka;
 
-abstract class CommonSocket
+abstract class  CommonSocket
 {
 
     const READ_MAX_LENGTH = 5242880; // read socket max length 5MB
@@ -20,7 +20,7 @@ abstract class CommonSocket
      * @var float
      * @access protected
      */
-    protected $sendTimeoutSec = 0;
+    protected $sendTimeoutSec = 10;
 
     /**
      * Send timeout in microseconds.
@@ -36,7 +36,7 @@ abstract class CommonSocket
      * @var float
      * @access protected
      */
-    protected $recvTimeoutSec = 0;
+    protected $recvTimeoutSec = 10;
 
     /**
      * Recv timeout in microseconds
