@@ -1,6 +1,8 @@
 Kafka-php
 ==========
 
+##mrdexpress fork to address timeout bug in unmaintained master code base
+
 [中文文档](README_CH.md)
 
 [![QQ Group](https://img.shields.io/badge/QQ%20Group-531522091-brightgreen.svg)]()
