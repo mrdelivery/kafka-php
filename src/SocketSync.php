@@ -71,7 +71,7 @@ class SocketSync extends CommonSocket
      * @return string Binary data
      * @throws \Kafka\Exception
      */
-    public function read(int $len)
+    public function read( $len)
     {
         return $this->readBlocking($len);
     }
@@ -84,7 +84,7 @@ class SocketSync extends CommonSocket
      * @return integer
      * @throws \Kafka\Exception
      */
-    public function write(string $buf)
+    public function write( $buf)
     {
         return $this->writeBlocking($buf);
     }
