@@ -47,6 +47,7 @@ class SyncProcess
                 'required_ack' => $requiredAck,
                 'timeout' => \Kafka\ProducerConfig::getInstance()->getTimeout(),
                 'data' => $topicList,
+                'timestamp' => round(microtime(true) * 1000),
             ];
             $this->debug("Send message start, params:" . json_encode($params));
             $requestData = \Kafka\Protocol::encode(\Kafka\Protocol::PRODUCE_REQUEST, $params);
