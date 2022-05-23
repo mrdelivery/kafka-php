@@ -206,7 +206,7 @@ class Produce extends Protocol
         $offset         += 2;
         $partitionOffset = self::unpack(self::BIT_B64, substr($data, $offset, 8));
         $offset         += 8;
-        $timestamp       = 0;
+        $timestamp       =  round(microtime(true) * 1000);
         if ($version == self::API_VERSION2) {
             $timestamp = self::unpack(self::BIT_B64, substr($data, $offset, 8));
             $offset   += 8;
