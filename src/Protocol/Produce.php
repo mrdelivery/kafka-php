@@ -102,7 +102,7 @@ class Produce extends Protocol
         $data    = self::pack(self::BIT_B8, $magic);
         $data   .= self::pack(self::BIT_B8, $compression);
 
-        if ($version == self::API_VERSION2) {
+        if ($magic == self::MESSAGE_MAGIC_VERSION1) {
             $timestamp = round(microtime(true) * 1000);
             $data   .= self::pack(self::BIT_B64, $timestamp);
         }
