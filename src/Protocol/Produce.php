@@ -98,9 +98,14 @@ class Produce extends Protocol
     {
         // int8 -- magic  int8 -- attribute
         $version = $this->getApiVersion(self::PRODUCE_REQUEST);
-        $magic   = ($version == self::API_VERSION2) ? self::MESSAGE_MAGIC_VERSION0 : self::MESSAGE_MAGIC_VERSION1;
+        $magic   = ($version == self::API_VERSION2) ? self::MESSAGE_MAGIC_VERSION1 : self::MESSAGE_MAGIC_VERSION0;
         $data    = self::pack(self::BIT_B8, $magic);
         $data   .= self::pack(self::BIT_B8, $compression);
+
+        if ($magic == self::MESSAGE_MAGIC_VERSION1) {
+            $timestamp = round(microtime(true) * 1000);
+            $data   .= self::pack(self::BIT_B64, $timestamp);
+        }
 
         $key = '';
         if (is_array($message)) {
