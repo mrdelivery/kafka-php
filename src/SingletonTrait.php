@@ -26,6 +26,17 @@ trait SingletonTrait
     }
 
     /**
+     * Abandon existing instance and make a fresh instance
+     * @return instance
+     */
+    public static function refreshInstance()
+    {
+        static::$instance = null;
+
+        return static::getInstance();
+    }
+
+    /**
      * __construct
      *
      * @access public
